@@ -1,0 +1,13 @@
+inputs:
+  marketplace-pat:
+    type: string
+  archive-path:
+    type: string
+  plugin-id:
+    type: number
+  plugin-xml-id:
+    type: string
+  channel:
+    type: string
+  is-hidden:
+    type: boolean

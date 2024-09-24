@@ -1,0 +1,28 @@
+name: 'JetBrains Marketplace Publisher'
+description: 'Publish your JetBrains extensions / plugins to the marketplace with ease!'
+author: 'Coding With Calvin'
+branding:
+  color: purple
+  icon: upload-cloud
+inputs:
+  marketplace-pat:
+    required: true
+    description: 'Your personal access token for the Marketplace'
+  archive-path:
+    required: true
+    description: 'Relative path to your ZIP file'
+  plugin-id:
+    required: false
+    description: 'The numeric ID of the plugin retrieved from the repository URL (use this OR plugin-xml-id, but not both)'
+  plugin-xml-id:
+    required: false
+    description: 'The unique identifier of the plugin specified as the <id> node in plugin.xml (use this OR plugin-id, but not both)'
+  channel:
+    required: false
+    description: 'What channel to push this update to (default is "stable")'
+  is-hidden:
+    required: false
+    description: 'Whether to keep this update hidden after approval (default is false)'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
