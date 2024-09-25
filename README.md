@@ -15,7 +15,7 @@ steps:
     uses: CodingWithCalvin/GHA-JBMarketplacePublisher@v1
     with:
       # REQUIRED
-      marketplace-pat: ${{ secrets.jb_marketplace_pat }}
+      marketplace-pat: ${{ secrets.marketplace_pat }}
       archive-path: ./src/outputFolder/extension.zip
 
       # ONE OF THE FOLLOWING IS REQUIRED, BUT NOT BOTH
