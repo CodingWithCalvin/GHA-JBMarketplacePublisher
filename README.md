@@ -34,6 +34,6 @@ steps:
 | marketplace-pat | Y        | Your 'Personal Access Token' to perform actions on the JetBrains Marketplace |
 | archive-path    | Y        | Path to the local ZIP package you wish to publish                            |
 | plugin-id       | N        | Your Plugin ID from the JetBrains Marketplace                                |
-| plugin-xml-id   | N        | The unique identifier from the <id> tag of plugin.xml                        |
+| plugin-xml-id   | N        | The unique identifier from the &lt;id&gt; tag of plugin.xml                  |
 | channel         | N        | Channel to publish to (if omitted, defaults to "stable")                     |
 | is-hidden       | N        | Make the update hidden (if omitted, defaults to false)                       |
