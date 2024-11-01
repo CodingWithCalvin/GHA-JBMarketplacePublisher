@@ -4,7 +4,8 @@ Github Action to publish your JetBrains plugin to the marketplace
 
 ## Usage
 
-You can use the JB Marketplace Publish GitHub Action by configuring a YAML-based workflow file, e.g. .github/workflows/deploy.yml.
+You can use the JB Marketplace Publish GitHub Action by configuring a YAML-based
+workflow file, e.g. .github/workflows/deploy.yml.
 
 ```yml
 steps:
@@ -20,7 +21,7 @@ steps:
 
       # ONE OF THE FOLLOWING IS REQUIRED, BUT NOT BOTH
       plugin-id: 1000
-      plugin-xml-id: "1001"
+      plugin-xml-id: '1001'
 
       # OPTIONAL
       channel: stable

@@ -27,7 +27,7 @@ async function run(): Promise<void> {
           core.setFailed(`No plugin ZIP file found at: '${ARCHIVE_PATH}'`)
           return
         }
-      }else {
+      } else {
         core.setFailed(`No plugin ZIP file found at: '${ARCHIVE_PATH}'`)
         return
       }
@@ -43,7 +43,7 @@ async function run(): Promise<void> {
     const form = new FormData()
 
     const fileBuffer = fs.readFileSync(ARCHIVE_PATH)
-    const fileBlob = new Blob([fileBuffer], {type: 'application/zip'})
+    const fileBlob = new Blob([fileBuffer], { type: 'application/zip' })
 
     if (PLUGIN_ID) {
       form.append('pluginId', PLUGIN_ID.toString())
