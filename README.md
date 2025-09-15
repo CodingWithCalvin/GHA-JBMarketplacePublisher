@@ -13,7 +13,7 @@ steps:
     uses: actions/checkout@v2
 
   - name: JetBrains Marketplace Publisher
-    uses: CodingWithCalvin/GHA-JBMarketplacePublisher@v1
+    uses: CodingWithCalvin/GHA-JBMarketplacePublisher@v1.0.0
     with:
       # REQUIRED
       marketplace-pat: ${{ secrets.marketplace_pat }}
