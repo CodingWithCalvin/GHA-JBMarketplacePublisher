@@ -1,0 +1,61 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Critical Rules
+
+These rules override all other instructions:
+
+1. **NEVER commit directly to main** - Always create a feature branch and submit a pull request
+2. **Conventional commits** - Format: `type(scope): description`
+3. **GitHub Issues for TODOs** - Use `gh` CLI to manage issues, no local TODO files. Use conventional commit format for issue titles
+4. **Pull Request titles** - Use conventional commit format (same as commits)
+5. **Branch naming** - Use format: `type/short-description` (e.g., `feat/new-input`)
+6. **Working an issue** - Always create a new branch from an updated main branch
+7. **Check branch status before pushing** - Verify the remote tracking branch still exists. If a PR was merged/deleted, create a new branch from main instead
+
+## Project Overview
+
+This is a GitHub Action that publishes JetBrains plugins to the JetBrains Marketplace. It's a TypeScript-based action that uses the JetBrains Plugin Repository API to upload plugin ZIP files.
+
+## Common Commands
+
+```bash
+# Install dependencies
+npm ci
+
+# Run tests
+npm test
+
+# Run tests (CI mode)
+npm run ci-test
+
+# Format code
+npm run format:write
+
+# Check formatting
+npm run format:check
+
+# Build/package the action (outputs to dist/)
+npm run package
+
+# Full build pipeline (format, test, coverage, package)
+npm run all
+```
+
+## Architecture
+
+**Single-file action**: The action entry point is `src/index.ts`, which is bundled to `dist/index.js` using `@vercel/ncc`. The action:
+1. Reads inputs via `@actions/core` (marketplace PAT, archive path, plugin ID, channel, etc.)
+2. Validates the ZIP file exists
+3. Uploads to `https://plugins.jetbrains.com/plugin/uploadPlugin` via multipart form POST
+
+**Action configuration**: `action.yml` defines the action metadata and inputs. The action runs on Node 20.
+
+**Tests**: Located in `__tests__/` directory, using Jest with ts-jest preset.
+
+## Key Files
+
+- `src/index.ts` - Main action logic
+- `action.yml` - GitHub Action definition
+- `dist/index.js` - Bundled output (committed to repo)
