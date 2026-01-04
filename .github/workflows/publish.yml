@@ -15,5 +15,6 @@ jobs:
       version: ${{ inputs.version }}
       action-name: 'JetBrains Marketplace Publisher'
       action-slug: 'jetbrains-marketplace-publisher'
-      action-description: 'Publish your JetBrains plugins to the marketplace with ease!'
+      action-description:
+        'Publish your JetBrains plugins to the marketplace with ease!'
     secrets: inherit
