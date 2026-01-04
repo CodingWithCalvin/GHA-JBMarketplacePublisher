@@ -6,22 +6,24 @@
 
 🚀 Publish your JetBrains plugins to the marketplace with ease!
 
-This GitHub Action publishes your JetBrains plugin (ZIP archive) to the JetBrains Marketplace.
+This GitHub Action publishes your JetBrains plugin (ZIP archive) to the
+JetBrains Marketplace.
 
 ## 🚀 Usage
 
-You can use the JetBrains Marketplace Publisher GitHub Action by configuring a YAML-based workflow file, e.g. `.github/workflows/deploy.yml`.
+You can use the JetBrains Marketplace Publisher GitHub Action by configuring a
+YAML-based workflow file, e.g. `.github/workflows/deploy.yml`.
 
 ## 📥 Inputs
 
-| Input | Required | Description |
-|-------|----------|-------------|
-| `marketplace-pat` | Yes | Your Personal Access Token for the JetBrains Marketplace |
-| `archive-path` | Yes | Path to the local ZIP package to publish |
-| `plugin-id` | No* | Plugin ID from the JetBrains Marketplace URL |
-| `plugin-xml-id` | No* | Unique identifier from the `<id>` tag in plugin.xml |
-| `channel` | No | Channel to publish to (default: `stable`) |
-| `is-hidden` | No | Make the update hidden after approval (default: `false`) |
+| Input             | Required | Description                                              |
+| ----------------- | -------- | -------------------------------------------------------- |
+| `marketplace-pat` | Yes      | Your Personal Access Token for the JetBrains Marketplace |
+| `archive-path`    | Yes      | Path to the local ZIP package to publish                 |
+| `plugin-id`       | No\*     | Plugin ID from the JetBrains Marketplace URL             |
+| `plugin-xml-id`   | No\*     | Unique identifier from the `<id>` tag in plugin.xml      |
+| `channel`         | No       | Channel to publish to (default: `stable`)                |
+| `is-hidden`       | No       | Make the update hidden after approval (default: `false`) |
 
 > ⚠️ **Note:** One of `plugin-id` or `plugin-xml-id` is required, but not both.
 
@@ -52,7 +54,9 @@ steps:
 ## 👥 Contributors
 
 <!-- readme: contributors -start -->
-[![CalvinAllen](https://avatars.githubusercontent.com/u/41448698?v=4&s=64)](https://github.com/CalvinAllen) 
+
+[![CalvinAllen](https://avatars.githubusercontent.com/u/41448698?v=4&s=64)](https://github.com/CalvinAllen)
+
 <!-- readme: contributors -end -->
 
 ## 📄 License
