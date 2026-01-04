@@ -1,40 +1,63 @@
-# CodingWithCalvin/GHA-JBMarketplacePublisher
+# JetBrains Marketplace Publisher
 
-Github Action to publish your JetBrains plugin to the marketplace
+[![Build](https://img.shields.io/github/actions/workflow/status/CodingWithCalvin/GHA-JBMarketplacePublisher/build.yml?style=for-the-badge&label=Build)](https://github.com/CodingWithCalvin/GHA-JBMarketplacePublisher/actions/workflows/build.yml)
+[![GitHub release](https://img.shields.io/github/v/release/CodingWithCalvin/GHA-JBMarketplacePublisher?style=for-the-badge)](https://github.com/CodingWithCalvin/GHA-JBMarketplacePublisher/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 
-## Usage
+🚀 Publish your JetBrains plugins to the marketplace with ease!
 
-You can use the JB Marketplace Publish GitHub Action by configuring a YAML-based
-workflow file, e.g. .github/workflows/deploy.yml.
+This GitHub Action publishes your JetBrains plugin (ZIP archive) to the JetBrains Marketplace.
 
-```yml
+## 🚀 Usage
+
+You can use the JetBrains Marketplace Publisher GitHub Action by configuring a YAML-based workflow file, e.g. `.github/workflows/deploy.yml`.
+
+## 📥 Inputs
+
+| Input | Required | Description |
+|-------|----------|-------------|
+| `marketplace-pat` | Yes | Your Personal Access Token for the JetBrains Marketplace |
+| `archive-path` | Yes | Path to the local ZIP package to publish |
+| `plugin-id` | No* | Plugin ID from the JetBrains Marketplace URL |
+| `plugin-xml-id` | No* | Unique identifier from the `<id>` tag in plugin.xml |
+| `channel` | No | Channel to publish to (default: `stable`) |
+| `is-hidden` | No | Make the update hidden after approval (default: `false`) |
+
+> ⚠️ **Note:** One of `plugin-id` or `plugin-xml-id` is required, but not both.
+
+## 📋 Example
+
+```yaml
 steps:
   - name: Checkout
-    uses: actions/checkout@v2
+    uses: actions/checkout@v4
 
   - name: JetBrains Marketplace Publisher
-    uses: CodingWithCalvin/GHA-JBMarketplacePublisher@v1.0.0
+    uses: CodingWithCalvin/GHA-JBMarketplacePublisher@v1
     with:
       # REQUIRED
-      marketplace-pat: ${{ secrets.marketplace_pat }}
-      archive-path: ./src/outputFolder/extension.zip
+      marketplace-pat: ${{ secrets.JB_MARKETPLACE_PAT }}
+      archive-path: './src/outputFolder/plugin.zip'
 
-      # ONE OF THE FOLLOWING IS REQUIRED, BUT NOT BOTH
+      # ONE OF THE FOLLOWING IS REQUIRED
       plugin-id: 1000
-      plugin-xml-id: '1001'
+      # OR
+      plugin-xml-id: 'com.example.myplugin'
 
       # OPTIONAL
       channel: stable
       is-hidden: false
 ```
 
-## Inputs
+## 👥 Contributors
 
-| Input           | Required | Description                                                                  |
-| --------------- | -------- | ---------------------------------------------------------------------------- |
-| marketplace-pat | Y        | Your 'Personal Access Token' to perform actions on the JetBrains Marketplace |
-| archive-path    | Y        | Path to the local ZIP package you wish to publish                            |
-| plugin-id       | N        | Your Plugin ID from the JetBrains Marketplace                                |
-| plugin-xml-id   | N        | The unique identifier from the &lt;id&gt; tag of plugin.xml                  |
-| channel         | N        | Channel to publish to (if omitted, defaults to "stable")                     |
-| is-hidden       | N        | Make the update hidden (if omitted, defaults to false)                       |
+<!-- readme: contributors -start -->
+<!-- readme: contributors -end -->
+
+## 📄 License
+
+MIT License - see [LICENSE](LICENSE) for details.
+
+---
+
+Made with ❤️ by Coding With Calvin
